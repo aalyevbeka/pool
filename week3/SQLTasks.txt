@@ -1,0 +1,39 @@
+Select All:
+	select * from CITY
+
+Select By ID:
+	select * from CITY
+	where id = 1661
+
+Japanese Cities’ Attributes:
+	select * from city
+	where countrycode = 'JPN';
+
+Japanese Cities’ Names:
+	select name from city 
+	where countrycode = 'JPN';
+
+Weather Observation Station 1:
+	select city,state from station;
+
+Weather Observation Station 3:
+	select DISTINCT city from station
+	where (id % 2) = 0;
+
+Weather Observation Station 5:
+	select city, length(city) from station order by length(city) asc, city limit 1 ;
+	select city, length(city) from station order by length(city) desc, city limit 1 ;
+
+Weather Observation Station 7:
+	SELECT DISTINCT city FROM   station 
+	WHERE  city  LIKE '%a' or city  LIKE '%e' or
+	city  LIKE '%i' or city  LIKE '%o' or city  LIKE '%u';
+
+Higher Than 75 Marks:
+	select name from STUDENTS 
+	where marks > 75
+	order by right(name, 3) ,id;
+
+Employee Names:
+	select name from Employee 
+	order by name;
