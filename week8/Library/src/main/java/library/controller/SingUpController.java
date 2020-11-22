@@ -30,6 +30,8 @@ public class SingUpController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView createNewUser(@Validated User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
+         user.setEmail(userRepository.findByEmail(user.getEmail()));
+        user.setName(userRepository.findByName(user.getName()));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRole(roleRepository.findById(1).get());
         user.setActive(true);
